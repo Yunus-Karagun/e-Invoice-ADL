@@ -1,4 +1,6 @@
-#Fatura xml dosyasından veri alma. 23.03.2023 tarihinden Yunus Karagün tarafından yazılmıştır. Tüm hakları saklıdır. yunus.karagun@gmail.com
+## Invoice UBL (xml) data extraction 
+
+#Fatura xml dosyasından veri alma. 09.04.2023 tarihinden Yunus Karagün tarafından yazılmıştır. Tüm hakları saklıdır. yunus.karagun@gmail.com
 
 
 import numpy as np
@@ -113,5 +115,10 @@ df_final = df_final.astype({'invoice_date': 'datetime64',
                             'discamount': 'float64',
                             'discpercent': 'float64'})
 
+data = {'Copyright Notice':  ['Tüm Hakları saklıdır.', 'Yunus Karagün tarafından 03.04.2023 tarihinde geliştirilmiştir.', 'İletişim için: yunus.karagun@gmail.com']
+        }
+Copyright = pd.DataFrame(data)
 
-df_final.to_excel("D:/TR/PPP_ADL.xlsx")
+with pd.ExcelWriter("D:/ADL_Invoice_Data.xlsx") as writer: 
+        Copyright.to_excel(writer, sheet_name='Copyright', index=False)
+        df_final.to_excel(writer, sheet_name='Data')
