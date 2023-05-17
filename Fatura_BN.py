@@ -16,7 +16,7 @@ directory = 'D:/TR/XML_ADL'
 df_list = []
 
 for filename in os.listdir(directory):
-    if filename.startswith('0080792700') and filename.endswith('.xml'):
+    if filename.startswith('1790172159') and filename.endswith('.xml'):
         file_path = os.path.join(directory, filename)
         tree = ET.parse(file_path)
         root = tree.getroot()
@@ -119,6 +119,6 @@ data = {'Copyright Notice':  ['Tüm Hakları saklıdır.', 'Yunus Karagün taraf
         }
 Copyright = pd.DataFrame(data)
 
-with pd.ExcelWriter("D:\TR\ADL_Invoice_Data.xlsx") as writer: 
+with pd.ExcelWriter("D:\TR\BN_Invoice_Data.xlsx") as writer: 
         Copyright.to_excel(writer, sheet_name='Copyright', index=False)
         df_final.to_excel(writer, sheet_name='Data')
