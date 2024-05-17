@@ -105,7 +105,8 @@ df_final = pd.concat(df_list, axis=0, ignore_index=True)
 #Veri türlerinin uygun olana geçirilmesi
 
 # df_final["buyer_name"]=df_final["buyer_name"].replace("Sevk Yeri:","", regex=True)
-df_final = df_final.astype({'invoice_date': 'datetime64',
+df_final = df_final.astype({
+#                             'invoice_date': 'datetime64',
                             'line_number': 'int64',
                             'quantity': 'float64',
                             'price': 'float64',
@@ -119,6 +120,6 @@ data = {'Copyright Notice':  ['Tüm Hakları saklıdır.', 'Yunus Karagün taraf
         }
 Copyright = pd.DataFrame(data)
 
-with pd.ExcelWriter("D:\TR\ADL_Invoice_Data.xlsx") as writer: 
+with pd.ExcelWriter("D:/2023_11_ADL_Invoice_Data.xlsx") as writer: 
         Copyright.to_excel(writer, sheet_name='Copyright', index=False)
         df_final.to_excel(writer, sheet_name='Data')
