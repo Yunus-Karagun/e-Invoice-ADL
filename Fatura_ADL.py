@@ -8,6 +8,8 @@ import pandas as pd
 import os
 from lxml import etree
 import xml.etree.ElementTree as ET
+import warnings
+warnings.filterwarnings('ignore')
 
 # ADL ubl veri alma
 
@@ -120,6 +122,6 @@ data = {'Copyright Notice':  ['Tüm Hakları saklıdır.', 'Yunus Karagün taraf
         }
 Copyright = pd.DataFrame(data)
 
-with pd.ExcelWriter("D:/2023_11_ADL_Invoice_Data.xlsx") as writer: 
+with pd.ExcelWriter("D:/TR/ADL_Invoice_Data.xlsx") as writer: 
         Copyright.to_excel(writer, sheet_name='Copyright', index=False)
         df_final.to_excel(writer, sheet_name='Data')
